@@ -1,5 +1,12 @@
 import Foundation
 
+func + (lhs: URL, rhs: String) -> URL {
+    lhs.appendingPathComponent(rhs)
+}
+
+func + (lhs: URL, rhs: [String]) -> URL {
+    rhs.reduce(lhs) { $0.appendingPathComponent($1) }
+}
 enum Build {
     static func performCommand(_ options: ArgumentOptions) throws {
         if Utility.shell("which brew") == nil {
