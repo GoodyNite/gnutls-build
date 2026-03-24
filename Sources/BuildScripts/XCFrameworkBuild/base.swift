@@ -489,11 +489,11 @@ class BaseBuild {
             try? FileManager.default.removeItem(at: currentLinkPath)
             try FileManager.default.createSymbolicLink(atPath: currentLinkPath.path, withDestinationPath: "A")
 
-            let binaryLinkPath = frameworkDir + framework
+            let binaryLinkPath = frameworkDir.appendingPathComponent(framework)
             try? FileManager.default.removeItem(at: binaryLinkPath)
             try FileManager.default.createSymbolicLink(atPath: binaryLinkPath.path, withDestinationPath: "Versions/Current/\(framework)")
 
-            let resourcesLinkPath = frameworkDir + "Resources"
+            let resourcesLinkPath = frameworkDir.appendingPathComponent("Resources")
             try? FileManager.default.removeItem(at: resourcesLinkPath)
             try FileManager.default.createSymbolicLink(atPath: resourcesLinkPath.path, withDestinationPath: "Versions/Current/Resources")
 
