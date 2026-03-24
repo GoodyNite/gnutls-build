@@ -49,7 +49,7 @@ jobs:
 
     - name: Build
       run: |
-        make build version=${{ env.RELEASE_VERSION }}
+        make build enable-debug version=${{ env.RELEASE_VERSION }}
     
     - name: Update Package.swift
       run: |
